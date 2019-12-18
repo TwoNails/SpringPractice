@@ -1,0 +1,304 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>D&D Character Builder</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    	 <script
+	  	src="https://code.jquery.com/jquery-3.4.1.js"
+	  	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	  	crossorigin="anonymous"></script>
+    
+    </head>
+
+    <body>
+
+        <header>
+            <div class="container">
+                <div class="jumbotron">
+                  <h1>Character builder for D&D rules</h1>      
+                  <p id="headercontent">Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+                </div>    
+              </div>
+        </header>
+        <section>
+            <div class="container">
+            	<br/>
+            	<div class="row">
+            		<!-- Here we'll add a toggle Male / Female if we have some time left -->
+            	</div>
+            	<div class="row">
+            		<div class="col-sm-3">
+            			<form>
+            				<input type="text" class="form-control" placeholder="Name your Character">
+            			</form>
+            		</div>
+            		<div class="col-sm-3">
+            		</div>
+            	</div>
+            
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Role
+                            </button>
+                            <div id="dropdownRolesButton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            </div>
+                        </div>
+                        <br/><br/><br/>
+                        <br/><br/><br/>
+                        <br/><br/><br/>
+                        <br/><br/><br/>
+                        <br/><br/><br/>
+                        <br/><br/>
+                        <div class="col-sm-9">
+                            <div class="card card-warning">
+                                <div class="card-heading align-items-center d-flex justify-content-center bg-secondary"> HP </div>
+                                <div class="card-body align-items-center d-flex justify-content-center" id="hpField">  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Classe
+                            </button>
+                            <div id="dropdownClassesButton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            </div>
+                        </div>
+                        <br/><br/><br/>
+                        <br/><br/><br/>
+                        <br/><br/><br/>
+                        <br/><br/><br/>
+                        <br/><br/><br/>
+                        <br/><br/>
+                        <div class="col-sm-9">
+                            <div class="card card-warning">
+                                <div class="card-heading align-items-center d-flex justify-content-center bg-secondary"> Defense </div>
+                                <div class="card-body align-items-center d-flex justify-content-center" id="defField">  </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <div class="col-sm-3">
+                        <div class="card" style="width: 13rem;">
+                            <div id="titreRole" class="card-header">
+                                <span class="font-weight-bold"> Role </span>
+                            </div>
+                            <div id="dataRole" class="card-body">
+								<img src="img/rolepics/default.png" class="card-img-top" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="card" style="width: 23rem;">
+                            <div id="titreClasse" class="card-header">
+                                 <span class="font-weight-bold"> Classe </span>
+                            </div>
+                            <div id="dataClasse" class="card-body">
+								<img src="img/classepics/defaultClasse.png" class="card-img-top" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="row font-weight-bold">	<!-- EN TETES : Tirer vos stats || Attribuez vos stats || Bonus de rôle || Total || Modif de stat -->
+            		<div class="col-sm-3">
+                            <p>Roll your stats : </p>
+                    </div>
+                    <div class="col-sm-1">
+                    		<button class="btn btn-secondary" id="goStats">GO!</button> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p>Allocated stats</p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p> Role bonus</p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p>Total</p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p>Stat modifier</p>
+                    </div>    
+            	</div>
+            	
+                <div class="row">	<!-- STR LINE : Random stat || STR attribution || Role bonus || Total -->
+            		<div class="col-sm-4">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle showAttribute" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="rdmStat1"></span> | Allocate to :
+                            </button>
+                            <div class="dropdown-menu dropdownAllStats" aria-labelledby="dropdownMenuButton">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    		<p>STR: <span id="strAttribute">10</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="strBonus">0</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="strTotal">0</span></p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p><span id="strModifier">0</span></p>
+                    </div>      
+            	</div>
+            	
+            	<div class="row">	<!-- DEX LINE : Random stat || DEX attribution || Role bonus || Total -->
+            		<div class="col-sm-4">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle showAttribute" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="rdmStat2"></span> | Allocate to :
+                            </button>
+                            <div class="dropdown-menu dropdownAllStats" aria-labelledby="dropdownMenuButton">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    		<p>DEX: <span id="dexAttribute">10</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="dexBonus">0</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="dexTotal">0</span></p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p><span id="dexModifier">0</span></p>
+                    </div>      
+            	</div>
+            	
+            	<div class="row">	<!-- DEX LINE : Random stat || DEX attribution || Role bonus || Total -->
+            		<div class="col-sm-4">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle showAttribute" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="rdmStat3"></span> | Allocate to :
+                            </button>
+                            <div class="dropdown-menu dropdownAllStats" aria-labelledby="dropdownMenuButton">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    		<p>STA: <span id="staAttribute">10</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="staBonus">0</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="staTotal">0</span></p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p><span id="staModifier">0</span></p>
+                    </div>      
+            	</div>
+            	
+            	<div class="row">	<!-- DEX LINE : Random stat || DEX attribution || Role bonus || Total -->
+            		<div class="col-sm-4">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle showAttribute" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="rdmStat4"></span> | Allocate to :
+                            </button>
+                            <div class="dropdown-menu dropdownAllStats" aria-labelledby="dropdownMenuButton">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    		<p>INT: <span id="intAttribute">10</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="intBonus">0</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="intTotal">0</span></p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p><span id="intModifier">0</span></p>
+                    </div>      
+            	</div>
+            	
+            	<div class="row">	<!-- DEX LINE : Random stat || DEX attribution || Role bonus || Total -->
+            		<div class="col-sm-4">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle showAttribute" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="rdmStat5"></span> | Allocate to :
+                            </button>
+                            <div class="dropdown-menu dropdownAllStats" aria-labelledby="dropdownMenuButton">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    		<p>WIS: <span id="wisAttribute">10</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="wisBonus">0</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="wisTotal">0</span></p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p><span id="wisModifier">0</span></p>
+                    </div>      
+            	</div>
+            	
+            	<div class="row">	<!-- DEX LINE : Random stat || DEX attribution || Role bonus || Total -->
+            		<div class="col-sm-4">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle showAttribute" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="rdmStat6"></span> | Allocate to :
+                            </button>
+                            <div class="dropdown-menu dropdownAllStats" aria-labelledby="dropdownMenuButton">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                    		<p>CHA: <span id="chaAttribute">10</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="chaBonus">0</span></p> 
+                    </div>
+                    <div class="col-sm-2">
+                    		<p><span id="chaTotal">0</span></p>
+                    </div>
+                    <div class="col-sm-2">
+                        <p><span id="chaModifier">0</span></p>
+                    </div>      
+                </div>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <button class="btn btn-secondary" id="autofillButton">Generate a character</button>
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="inputId"> Choose an ID </label><input type="number" id="inputId" min="0">
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-secondary" id="saveCharButton">Save character</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+        	<div></div>
+        </footer>
+		
+		<!-- scripts bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+        
+        <!-- our own front script -->
+        <script src="main.js"></script>
+
+    </body>
+
+</html>
