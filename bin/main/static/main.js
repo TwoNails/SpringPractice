@@ -49,25 +49,25 @@
 		allocateSta.textContent = "Stamina";
 		allocateSta.className = "dropdown-item";
 		allocateSta.type = "button";
-		allocateSta.addEventListener("click", function(){		updateSelectedValue(e);
+		allocateSta.addEventListener("click", function(e){		updateSelectedValue(e);
 																allocate("Stamina");});
 		
 		allocateInt.textContent = "Intelligence";
 		allocateInt.className = "dropdown-item";
 		allocateInt.type = "button";
-		allocateInt.addEventListener("click", function(){		updateSelectedValue(e);
+		allocateInt.addEventListener("click", function(e){		updateSelectedValue(e);
 																allocate("Intelligence");});
 		
 		allocateWis.textContent = "Wisdom";
 		allocateWis.className = "dropdown-item";
 		allocateWis.type = "button";
-		allocateWis.addEventListener("click", function(){		updateSelectedValue(e);
+		allocateWis.addEventListener("click", function(e){		updateSelectedValue(e);
 																allocate("Wisdom");});
 		
 		allocateCha.textContent = "Charisma";
 		allocateCha.className = "dropdown-item";
 		allocateCha.type = "button";
-		allocateCha.addEventListener("click", function(){		updateSelectedValue(e);
+		allocateCha.addEventListener("click", function(e){		updateSelectedValue(e);
 																allocate("Charisma");});
 		
 		dropdownAllocation.appendChild(allocateStr);
@@ -109,6 +109,11 @@
 			default :
 			break;
 		}
+
+		updateTotals();
+		updateModifiers();
+		updateHp();
+		updateDef();
 	} 
 	document.getElementById("goStats").addEventListener("click", rollStats);
 
