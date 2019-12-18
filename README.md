@@ -9,7 +9,7 @@ The user can select from 7 roles (races) and 11 classes, roll some dices to get 
 He can then send his character to the API, where it'll be sored on a List.
 The user also have the option to autofill every field to use one of our pre-built characters as its own (he still has to come up with a cool name for his guy though).
 
-#### Front End ####
+### Front End ###
 
 index.html, style.css and main.js are the only front-end files.
 
@@ -21,18 +21,19 @@ In this project main.js is actually quite consistent. Even if I left the back en
 
 ![alt-text](https://i.imgur.com/W9wvdJx.png)
 
-#### Back End ####
+### Back End ###
 
 The back end of the project is essentially a REST API, with the database simulated (everything is stored on Lists inside the controller). JDBC would have been an option if I had cut a couple of features to have the time to work on it.
 
 ###### controller package | 1 file ######
-	- CharacterBuilderController.java
+- CharacterBuilderController.java
 
 ###### model package | 1 folder, 2 files ######
-	- package dto (data transfer objects) 
-	I ended up not using it, even though at some point it worked, some errors elsewhere in the code made me try another way that did work.
-	- Characters.java
-	- Role.java
+- package dto (data transfer objects) 
+
+I ended up not using it, even though at some point it worked, some errors elsewhere in the code made me try another way that did work.
+- Characters.java
+- Role.java
 
 ##### Endpoints #####
 
@@ -40,16 +41,15 @@ The controller address is /herobuilder.
 
 Its constructor builds 3 fake databases. One of them stores the playable roles (DnD races) as Objects.
 
-	- /about : returns a couple of sentences as a String.
-	- /getroles : returns a list of String, one for each role stored in the pseudo database.
-	- /getclasses : return a list of String, one for each classe stored in the pseudo database.
-	- /getbonus (RequestParam id, the id of a role) : return a list of integers, representing the bonus/malus to stats offered by a given role.
-	- /characterautofill (RequestParam id, the id of a Character): return a serialized Character Java Object.
-	- /addcharacter (Rquest 8 (ugh...) parameters) : stores a new Character in the fake database. The latest and only successfull experiment, which excuses its clumsyness, hopefully. I initally designed endpoints using RequestBody and failed. Time ticking pushed me towards less elegant solutions.
-	- /throwdices : returns a list of 6 integers representing each the result a throwing 4 dices and keeping the 3 best results.
+- ###### /about : returns a couple of sentences as a String. ###### 
+- ###### /getroles : returns a list of String, one for each role stored in the pseudo database. ######
+- ###### /getclasses : return a list of String, one for each classe stored in the pseudo database. ######
+- ###### /getbonus (RequestParam id, the id of a role) : return a list of integers, representing the bonus/malus to stats offered by a given role. ######
+- ###### /characterautofill (RequestParam id, the id of a Character): return a serialized Character Java Object. ######
+- ###### /addcharacter (Rquest 8 (ugh...) parameters) : stores a new Character in the fake database. The latest and only successfull experiment, which excuses its clumsyness, hopefully. I initally designed endpoints using RequestBody and failed. Time ticking pushed me towards less elegant solutions. ######
+- ###### /throwdices : returns a list of 6 integers representing each the result a throwing 4 dices and keeping the 3 best results. ######
 	
-	
-#### What I would like to do ####
+### What I would like to do ###
 
 I'd really like to have a toggle option to select a female character.
 
