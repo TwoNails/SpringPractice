@@ -1,7 +1,7 @@
 	// used to store data received from our API
 	var listeRoles = [];								// stores the roles, is called immediately
 	var listeClasses = [];								// stores the classes, is called immediately
-	var listeBonus = [0, 0, 0, 0, 0, 0];								// stores the bonus for a given role, is called when the user select a role
+	var listeBonus = [0, 0, 0, 0, 0, 0];				// stores the bonus for a given role, is called when the user select a role
 	var statsRolls = [];								// stores the stat values, is called when the user decides to roll his stats
 	var charObjToSave = {};								// stores the 
 	
@@ -22,23 +22,11 @@
 		stat5attributed = 0, 
 		stat6attributed = 0;
 	
-	// var statNames = ['Strength', 'Dexterity', 'Stamina', 'Intelligence', 'Wisdom', 'Charisma'];
-	// we fill the 6 dropdowns here, it's not dynamic but it's just faster.
+	var dropdownAllocation;
 
-	// var dropdownsAllocation = document.getElementsByClassName("dropdownAllStats");
-	var dropdownsAllocation = document.querySelector(".dropdownAllStats");
-	
-		console.log(dropdownsAllocation);
-	var n = 0;
-	for (let i = 0 ; i<dropdownsAllocation.length ; i++ ){
-		console.log(n++);
-	}
+	for(let i = 0, c = 6 ; i<c ; i++){
+		dropdownAllocation = document.getElementsByClassName("dropdownAllStats")[i];
 
-	for (var dropdownStat in dropdownsAllocation){
-		// console.log(n++);
-	}
-		/*	dropdown.addEventListener("click", function(){selectedValue = parseInt(dropdown.textContent);});
-		
 		var allocateStr = document.createElement("button"), 
 			allocateDex = document.createElement("button"),
 			allocateSta = document.createElement("button"),
@@ -46,42 +34,82 @@
 			allocateWis = document.createElement("button"),
 			allocateCha = document.createElement("button");
 
-		allocateStr.textContent = "Strength";	
-		allocateStr.addEventListener("click", function(){allocate("Strength");});
+		allocateStr.textContent = "Strength";
+		allocateStr.className = "dropdown-item";
+		allocateStr.type = "button";	
+		allocateStr.addEventListener("click", function(e){		updateSelectedValue(e);
+																allocate("Strength");});
 		
 		allocateDex.textContent = "Dexterity";
-		allocateDex.addEventListener("click", function(){allocate("Dexterity");});
+		allocateDex.className = "dropdown-item";
+		allocateDex.type = "button";
+		allocateDex.addEventListener("click", function(e){		updateSelectedValue(e);
+																allocate("Dexterity");});
 		
-		allocateStr.textContent = "Stamina";
-		allocateStr.addEventListener("click", function(){allocate("Stamina");});
+		allocateSta.textContent = "Stamina";
+		allocateSta.className = "dropdown-item";
+		allocateSta.type = "button";
+		allocateSta.addEventListener("click", function(){		updateSelectedValue(e);
+																allocate("Stamina");});
 		
-		allocateStr.textContent = "Intelligence";
-		allocateStr.addEventListener("click", function(){allocate("Intelligence");});
+		allocateInt.textContent = "Intelligence";
+		allocateInt.className = "dropdown-item";
+		allocateInt.type = "button";
+		allocateInt.addEventListener("click", function(){		updateSelectedValue(e);
+																allocate("Intelligence");});
 		
-		allocateStr.textContent = "Wisdom";
-		allocateStr.addEventListener("click", function(){allocate("Wisdom");});
+		allocateWis.textContent = "Wisdom";
+		allocateWis.className = "dropdown-item";
+		allocateWis.type = "button";
+		allocateWis.addEventListener("click", function(){		updateSelectedValue(e);
+																allocate("Wisdom");});
 		
-		allocateStr.textContent = "Charisma";
-		allocateStr.addEventListener("click", function(){allocate("Charisma");});
+		allocateCha.textContent = "Charisma";
+		allocateCha.className = "dropdown-item";
+		allocateCha.type = "button";
+		allocateCha.addEventListener("click", function(){		updateSelectedValue(e);
+																allocate("Charisma");});
 		
-		dropdown.appendChild(allocateStr);
-		dropdown.appendChild(allocateDex);
-		dropdown.appendChild(allocateSta);
-		dropdown.appendChild(allocateInt);
-		dropdown.appendChild(allocateWis);
-		dropdown.appendChild(allocateCha);	
+		dropdownAllocation.appendChild(allocateStr);
+		dropdownAllocation.appendChild(allocateDex);
+		dropdownAllocation.appendChild(allocateSta);
+		dropdownAllocation.appendChild(allocateInt);
+		dropdownAllocation.appendChild(allocateWis);
+		dropdownAllocation.appendChild(allocateCha);
+	}
+
+	function updateSelectedValue(event){
+		console.log("method supposed to launch has launched");
+
+		console.log("value we're about to store in selectedValue : " + event.target.parentNode.parentNode.getElementsByClassName("rdmStat")[0].textContent);
+		selectedValue = event.target.parentNode.parentNode.getElementsByClassName("rdmStat")[0].textContent;
 	}
 	
-	// change the innerText of the statAttribute span
+	// change the innerText of the statAttribute span (situated under the Allocated stats text on the page)
 	function allocate(stat){		
 		switch(stat){
 			case "Strength" : 
-				document.getElementById(strAttribute).textContent = selectedValue;
+				document.getElementById("strAttribute").textContent = selectedValue;
+			break;
+			case "Dexterity" : 
+				document.getElementById("dexAttribute").textContent = selectedValue;
+			break;
+			case "Stamina" : 
+				document.getElementById("staAttribute").textContent = selectedValue;
+			break;
+			case "Intelligence" : 
+				document.getElementById("intAttribute").textContent = selectedValue;
+			break;
+			case "Wisdom" : 
+				document.getElementById("wisAttribute").textContent = selectedValue;
+			break;
+			case "Charisma" : 
+				document.getElementById("chaAttribute").textContent = selectedValue;
 			break;
 			default :
 			break;
 		}
-	} */
+	} 
 	document.getElementById("goStats").addEventListener("click", rollStats);
 
 	function rollStats(){
@@ -161,9 +189,8 @@
 		  document.getElementById("dropdownClassesButton").appendChild(newDroplistItem);
 		});
 	  }
-	
 
-	// UPDATE FUNCTIONS
+	// UPDATE FUNCTIONS ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	  
 	  // 1. Role update functions
 	  
@@ -183,7 +210,6 @@
 	  
 		switch(currentRole){
 			case "Human" :
-				// cardBody.innerHTML = '<div class="humanPic"></div>'; (see style.css) not working trying something else
 				cardBody.innerHTML = '<img src="img/rolepics/roleHuman.png" class="card-img-top" alt="">'
 				break;
 			case "Halfling" :
@@ -273,6 +299,7 @@
 	  	}
 		
 		urlBonus = "http://localhost:8080/herobuilder/getbonus?id=" + classeId;
+		console.log("url called : " + urlBonus);
 		$.ajax({
 			url: urlBonus
 		  }).then(function (data) {
@@ -285,6 +312,7 @@
 	function updateClasseRelated(e){
 		currentClasse = e.target.innerText;
 		updateClasseCard();
+		updateHp();
 		//updateDef();
 	}
 	
@@ -357,6 +385,8 @@
 		// update HP & Def
 
 		function updateHp(){
+			console.log("updateHP called with currentClasse = " + currentClasse + " and staModifier = " + document.getElementById("staModifier").textContent);
+			console.log("staModifier parseInted is equal to " + parseInt(document.getElementById("staModifier").textContent));
 			let baseHp = 0;
 			switch(currentClasse){
 				case "Sorcerer" :
@@ -377,7 +407,7 @@
 				case "Paladin" :
 					baseHp = 10;
 				break;
-				case "Barabrian" :
+				case "Barbarian" :
 					baseHp = 12;
 				break;
 				default :
@@ -390,7 +420,7 @@
 		function updateDef(){
 			// alert("function updateDef called !");
 			let baseDef = 10;	
-			document.getElementById("hpField").textContent = (baseDef + parseInt(document.getElementById("dexModifier").textContent));
+			document.getElementById("defField").textContent = (baseDef + parseInt(document.getElementById("dexModifier").textContent));
 		}
 
 
@@ -402,23 +432,45 @@
 
 		function autofillRequest(){
 			let isIdOk = function(){
-				if(document.getElementById("inputId").nodeValue==""){
+				if(document.getElementById("inputId").value==""){
 					alert("Please make sure you entered an ID")
 					return false
 				}
 				return true;
 			};
-			if(isIdOk){
-				alert("doing something");
+
+			if(isIdOk()){
+				urlCharByID = "http://localhost:8080/herobuilder/characterautofill?id=" + document.getElementById("inputId").value;
+
 				$.ajax({
-					url: "/characterautofill?id=" + document.getElementById("inputId")
+					url: urlCharByID
 				  }).then(function (data) {
-					  charObject = data;
-				  }).then(updateBonus).then(updateHp).then(updateDef);
+					
+					  console.log("data received ! Building a " + data["roleName"] + " " +data["classe"]);
+
+					  currentRole = data["roleName"];
+					  currentClasse = data["classe"];
+					  updateRoleCard();
+					  updateClasseCard();
+					  listeBonus[0] = data["species"][streMod];
+					  listeBonus[1] = data["species"][dextMod];
+					  listeBonus[2] = data["species"][stamMod];
+					  listeBonus[3] = data["species"][intlMod];
+					  listeBonus[4] = data["species"][wisdMod];
+					  listeBonus[5] = data["species"][chsmMod];
+
+				  }).fail(errorTreatment).then(updateBonus).then(updateModifiers).then(updateHp).then(updateDef);		// then(updateBonus).then(updateModifiers).then(updateHp).then(updateDef);
 			}
 		}
 
+		function errorTreatment(){
+			alert("There is no Character with this ID currently on the database");
+		}
+
 		// SAVE CHARACTER POST REQUEST
+
+		// I'm not really proud of this one ended up - sending all the parameters one by one instead of sending a serialized object
+		// But I was getting desesperate so I was happy this solution worked.
 
 		document.getElementById("saveCharButton").addEventListener("click", function(){
 			if(currentRole==""||currentClasse==""){
@@ -429,7 +481,6 @@
 		});
 
 		function saveCharacter(){
-			console.log("saveChar working");
 
 			let currentStr = parseInt(document.getElementById("strTotal").textContent);
 			let currentDex = parseInt(document.getElementById("strTotal").textContent);
@@ -448,77 +499,6 @@
 				wisData : currentWis,
 				chaData	: currentCha
 			});
-
-
-			/*
-			charObjToSave = {
-				roleName: currentRole,
-				classe: currentClasse,
-				allStats: [
-					strData, 
-					dexData,
-					staData,
-					intData,
-					wisData,
-					chaData	
-				]
-			}
-			*/
-			/** 
-			$.ajax({
-				contentType: 'application/json',
-				data: JSON.stringify(charObjToSave),
-				
-				dataType: 'json',
-				success: function(data){
-					alert("character saved !");
-				},
-				error: function(){
-					alert("unknown error !");
-				},
-				processData: false,
-				type: 'POST',
-				url: '/savecharacter'
-			});
-			*/
-
-			/*
-			$.ajax({
-				url: "/savecharacter",
-				method: "POST",
-				data: JSON.stringify(charObjToSave),
-				dataType: 'json',
-				contentType: "application/json",
-				 success: function(result,status,jqXHR ){
-					alert("character saved !");
-				 },
-				 error(jqXHR, textStatus, errorThrown){
-					alert("unknown error !");
-				 }
-			});
-			*/
-
-			
-				
-				
-					/*
-					$.post("http://localhost:8080/herobuilder/savecharacter", 
-					JSON.stringify(charObjToSave)
-					
-					/*
-					{
-						"roleName": currentRole,
-						"classe": currentClasse,						
-						"allStats": [
-							parseInt(document.getElementById("strTotal").textContent), 
-							parseInt(document.getElementById("dexTotal").textContent), 
-							parseInt(document.getElementById("staTotal").textContent), 
-							parseInt(document.getElementById("intTotal").textContent), 
-							parseInt(document.getElementById("wisTotal").textContent), 
-							parseInt(document.getElementById("chaTotal").textContent)
-						] } */
-				//	); 
-					//document.location.reload(true);
 				
 		}
 

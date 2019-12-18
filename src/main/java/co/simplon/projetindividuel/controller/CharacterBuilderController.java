@@ -23,7 +23,6 @@ import co.simplon.projetindividuel.model.dto.CharacterDTO;
 @RequestMapping("/herobuilder")
 public class CharacterBuilderController {
 	
-	
 	public static int rolesIdCount;
 	public static int classesIdCount;
 	public static int playableCharacterIdCount;
@@ -107,10 +106,12 @@ public class CharacterBuilderController {
 	
 	@RequestMapping("/characterautofill")
 	public ResponseEntity<Characters> getCharStatsToFill(@RequestParam int id) {
-		
+		System.out.println("characterautofill called");
 		if(id >= 0 && id < fakeDatabaseSavedCharacters.size()) {
-			return new ResponseEntity<Characters>(fakeDatabaseSavedCharacters.get(id), HttpStatus.FOUND);			
+			System.out.println("characterautofill success");
+			return new ResponseEntity<Characters>(fakeDatabaseSavedCharacters.get(id), HttpStatus.OK);	
 		} else {
+			System.out.println("characterautofill failure");
 			return new ResponseEntity<Characters>(HttpStatus.NOT_FOUND);
 		}
 	}

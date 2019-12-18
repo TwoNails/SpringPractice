@@ -34,26 +34,26 @@ public class Characters {
 		switch(classe) {
 		case "Sorcerer" :
 		case "Wizard" :
-			this.hp = 4 + getMod(stre);
+			this.hp = 4 + getMod(stam);
 			break;
 		case "Bard" :
 		case "Rogue" :
-			this.hp = 6 + getMod(stre);
+			this.hp = 6 + getMod(stam);
 			break;
 		case "Cleric" :
 		case "Druid" :
 		case "Monk" :
 		case "Ranger" :
-			this.hp = 8 + getMod(stre);
+			this.hp = 8 + getMod(stam);
 			break;
 		case "Warrior" :
 		case "Paladin" :
-			this.hp = 10 + getMod(stre);
+			this.hp = 10 + getMod(stam);
 		case "Barabrian" :
-			this.hp = 12 + getMod(stre);
+			this.hp = 12 + getMod(stam);
 		}
 		
-		this.def = 10 + getMod(dext);
+		this.def = 10 + getMod(stam);
 	}
 
 

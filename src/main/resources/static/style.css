@@ -63,4 +63,5 @@ input[type="number"] {
 
 #hpField, #defField {
 	height: 0.1em;
+	min-width: 80px;
 }
