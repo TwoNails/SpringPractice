@@ -230,11 +230,6 @@
 	}
 
 	function updateTotals(){
-		// NOT WORKING, TESTS HERE
-		console.log("updateTotals has been called");
-		console.log("strTotal before any treatment : " + document.getElementById("strTotal").textContent);
-		console.log("value of strBonus : " + document.getElementById("strBonus").textContent);
-		console.log("value of strBonus parsInted : " + document.getElementById("strBonus").textContent);
 
 		document.getElementById("strTotal").textContent = parseInt(document.getElementById("strAttribute").textContent) + parseInt(document.getElementById("strBonus").textContent);
 		document.getElementById("dexTotal").textContent = parseInt(document.getElementById("dexAttribute").textContent) + parseInt(document.getElementById("dexBonus").textContent);
@@ -422,10 +417,6 @@
 				  }).then(updateBonus).then(updateHp).then(updateDef);
 			}
 		}
-
-		
-		
-		
 
 		// SAVE CHARACTER POST REQUEST
 
