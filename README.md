@@ -46,7 +46,7 @@ Its constructor builds 3 fake databases. One of them stores the playable roles (
 - ###### /getclasses : return a list of String, one for each classe stored in the pseudo database. ######
 - ###### /getbonus (RequestParam id, the id of a role) : return a list of integers, representing the bonus/malus to stats offered by a given role. ######
 - ###### /characterautofill (RequestParam id, the id of a Character): return a serialized Character Java Object. ######
-- ###### /addcharacter (Rquest 8 (ugh...) parameters) : stores a new Character in the fake database. The latest and only successfull experiment, which excuses its clumsyness, hopefully. I initally designed endpoints using RequestBody and failed. Time ticking pushed me towards less elegant solutions. ######
+- ###### /addcharacter (Request 8 (ugh...) parameters) : stores a new Character in the fake database. The latest and only successfull experiment, which excuses its clumsyness, hopefully. I initally designed endpoints using RequestBody and failed. Time ticking pushed me towards less elegant solutions. ######
 - ###### /throwdices : returns a list of 6 integers representing each the result a throwing 4 dices and keeping the 3 best results. ######
 	
 ### What I would like to do ###
