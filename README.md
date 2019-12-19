@@ -15,7 +15,7 @@ index.html, style.css and main.js are the only front-end files.
 
 Most of the styling is done through boostrap classes. There's a lot of elements though so even with the help of its classes the responsiveness is unsatisfying and definitely needs further tweaking.
 
-In this project main.js is actually quite consistent. Even if I left the back end deal with the - actually pretty light - calculations, the fact that many HTML elements have to be updated, and in a specific order, whenever the user changes a single parameter, requires the use of several update functions.
+In this project main.js is actually quite substantial. Even if I left the back end deal with the - actually pretty light - calculations, the fact that many HTML elements have to be updated, and in a specific order, whenever the user changes a single parameter, requires the use of several update functions.
 
 ##### What it looks like : #####
 
