@@ -6,7 +6,7 @@ I went for a Character Builder Tool for the old - but gold - D&D 3.5
 
 The user can select from 7 roles (races) and 11 classes, roll some dices to get 6 values to allocate to its different stats and see everything automatically updated.
 
-He can then send his character to the API, where it'll be sored on a List.
+He can then send his character to the API, where it'll be stored on a List.
 The user also have the option to autofill every field to use one of our pre-built characters as its own (he still has to come up with a cool name for his guy though).
 
 ### Front End ###
