@@ -53,7 +53,7 @@ Its constructor builds 3 fake databases. One of them stores the playable roles (
 
 I'd really like to have a toggle option to select a female character.
 
-Other than that, having more rules of the game plugged into the API would be the next logical step. The Players Rule Book is just gigantic and having everything listed on a single webpage would awesome. 
+Other than that, having more rules of the game plugged into the API would be the next logical step. The Players Rule Book is just gigantic and having everything listed on a single webpage would be awesome. 
 Something essential would be an equipment and skills section. Gifts and spells would also be a nice plus.
 
 Working on the esthetics, and on the responsivity, especially for phone screens (as of right now it's completely broken).
