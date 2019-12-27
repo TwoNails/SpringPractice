@@ -9,7 +9,7 @@ The user can select from 7 roles (races) and 11 classes, roll some dices to get 
 He can then send his character to the API, where it'll be stored on a List.
 The user also have the option to autofill every field to use one of our pre-built characters as its own (he still has to come up with a cool name for his guy though).
 
-### Front End ###
+## Front End ##
 
 index.html, style.css and main.js are the only front-end files.
 
@@ -17,11 +17,11 @@ Most of the styling is done through boostrap classes. There's a lot of elements 
 
 In this project main.js is actually quite substantial. Even if I left the back end deal with the - actually pretty light - calculations, the fact that many HTML elements have to be updated, and in a specific order, whenever the user changes a single parameter, requires the use of several update functions.
 
-##### What it looks like : #####
+#### What it looks like : ####
 
 ![alt-text](https://i.imgur.com/W9wvdJx.png)
 
-### Back End ###
+## Back End ##
 
 The back end of the project is essentially a REST API, with the database simulated (everything is stored on Lists inside the controller). JDBC would have been an option if I had cut a couple of features to have the time to work on it.
 
@@ -35,7 +35,7 @@ I ended up not using it, even though at some point it worked, some errors elsewh
 - Characters.java
 - Role.java
 
-##### Endpoints #####
+#### Endpoints ####
 
 The controller address is /herobuilder.
 
