@@ -59,6 +59,3 @@ Something essential would be an equipment and skills section. Gifts and spells w
 Working on the esthetics, and on the responsivity, especially for phone screens (as of right now it's completely broken).
 
 And it would be better if this project used an actual database.
-	
-	
-
